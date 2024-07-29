@@ -1,7 +1,7 @@
 package auth_service
 
 import (
-	"mnp-auth-service/models"
+	"github.com/mnpt97/mnp-auth-service/models"
 
 	"golang.org/x/crypto/bcrypt"
 )

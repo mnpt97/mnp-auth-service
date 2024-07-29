@@ -3,10 +3,11 @@ package auth_service
 import (
 	"encoding/json"
 	"fmt"
-	"mnp-auth-service/models"
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/mnpt97/mnp-auth-service/models"
 
 	"github.com/golang-jwt/jwt/v5"
 )

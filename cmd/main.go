@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	authservice "mnp-auth-service/auth_service"
-	dbservice "mnp-auth-service/db_service"
 	"net/http"
+
+	authservice "github.com/mnpt97/mnp-auth-service/auth_service"
+	dbservice "github.com/mnpt97/mnp-auth-service/db_service"
 
 	"github.com/gorilla/mux"
 )

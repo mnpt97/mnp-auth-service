@@ -1,4 +1,4 @@
-module mnp-auth-service
+module github.com/mnpt97/mnp-auth-service
 
 go 1.22.5
 

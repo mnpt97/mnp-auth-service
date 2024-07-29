@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"log"
-	"mnp-auth-service/models"
 	"net/http"
 	"os"
+
+	"github.com/mnpt97/mnp-auth-service/models"
 
 	"github.com/google/uuid"
 )
