@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	simpleDb := dbservice.NewSimpleDb("/Users/mnp/workspace/mnp-auth-service-go/data/min-user.json")
+	simpleDb := dbservice.NewSimpleDb("YOUR_FILE_HERE")
 	router := mux.NewRouter()
 
 	router.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) { authservice.LoginHandler(w, r, simpleDb) })
