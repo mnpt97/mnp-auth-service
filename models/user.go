@@ -1,15 +1,14 @@
 package models
 
-import "github.com/google/uuid"
-
 type User struct {
-	ID          uuid.UUID `json:"id"`
-	Username    string    `json:"username"`
-	PasswordEnc string    `json:"-"`
-	Claims      []Claim   `json:"claims"`
+	ID          string  `json:"id"`
+	Username    string  `json:"username"`
+	Email       string  `json:"email"`
+	PasswordEnc string  `json:"-"`
+	Claims      []Claim `json:"claims"`
 }
 
 type Claim struct {
-	Key   string
-	Value string
+	Key   string `json:"key"`
+	Value string `json:"value"`
 }

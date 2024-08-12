@@ -1,4 +1,4 @@
-package dbservice
+package db_service
 
 import (
 	"encoding/json"
@@ -59,7 +59,7 @@ func (sd *SimpleDb) ReadUserData(userDataFile string) {
 		for _, claim := range user.Claims {
 			claims = append(claims, models.Claim{Key: claim.Key, Value: claim.Value})
 		}
-		users = append(users, models.User{ID: uuid.UUID{}, Username: user.Username, PasswordEnc: user.Password, Claims: claims})
+		users = append(users, models.User{ID: uuid.UUID{}.String(), Username: user.Username, PasswordEnc: user.Password, Claims: claims})
 
 	}
 	sd.users = users

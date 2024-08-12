@@ -9,7 +9,7 @@ import (
 	"github.com/mnpt97/mnp-auth-service/models"
 )
 
-func LoginHandler2(w http.ResponseWriter, r *http.Request, db UserDB) {
+func LoginHandler(w http.ResponseWriter, r *http.Request, tokenService *TokenService, db UserDB) {
 	w.Header().Set("Content-Type", "application/json")
 
 	var u models.LoginReguest
@@ -19,7 +19,7 @@ func LoginHandler2(w http.ResponseWriter, r *http.Request, db UserDB) {
 		w.WriteHeader(status)
 	}
 
-	tokenString, err := createToken(user)
+	tokenString, err := tokenService.createToken(user)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Errorf("No username found")
@@ -33,7 +33,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request, tokenService *TokenSe
 
 }
 
-func Grant2(fn func(http.ResponseWriter, *http.Request), tokenService *TokenService, claimValidator func(jwt.MapClaims) bool) http.HandlerFunc {
+func Grant(fn func(http.ResponseWriter, *http.Request), tokenService *TokenService, claimValidator func(jwt.MapClaims) bool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		tokenString := r.Header.Get("Authorization")
