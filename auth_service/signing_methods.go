@@ -10,7 +10,7 @@ const (
 )
 
 type SigningMethod interface {
-	GetSigningKey() string
+	GetSigningKey() interface{}
 	KeyFunc(token *jwt.Token) (interface{}, error)
 	GetMethod() SignMethod
 }
@@ -24,11 +24,11 @@ func NewRsa512Signing(loadPrivateKey func() string,
 }
 
 type RSA512Signing struct {
-	privateKey string
-	publicKey  string
+	privateKey interface{}
+	publicKey  interface{}
 }
 
-func (rsa RSA512Signing) GetSigningKey() string {
+func (rsa RSA512Signing) GetSigningKey() interface{} {
 	return rsa.privateKey
 }
 
