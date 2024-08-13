@@ -15,8 +15,8 @@ type SigningMethod interface {
 	GetMethod() SignMethod
 }
 
-func NewRsa512Signing(loadPrivateKey func() string,
-	loadPublicKey func() string) RSA512Signing {
+func NewRsa512Signing(loadPrivateKey func() interface{},
+	loadPublicKey func() interface{}) RSA512Signing {
 	return RSA512Signing{
 		privateKey: loadPrivateKey(),
 		publicKey:  loadPublicKey(),
